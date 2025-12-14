@@ -47,16 +47,18 @@ class TodoList extends StatelessWidget {
                 activeColor: Colors.white,
                 side: BorderSide(color: Colors.white),
               ),
-              Text(
-                taskName,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  decoration: taskCompleted
-                      ? TextDecoration.lineThrough
-                      : TextDecoration.none,
-                  decorationColor: Colors.white,
-                  decorationThickness: 2,
+              Flexible(
+                child: Text(
+                  taskName,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    decoration: taskCompleted
+                        ? TextDecoration.lineThrough
+                        : TextDecoration.none,
+                    decorationColor: Colors.white,
+                    decorationThickness: 2,
+                  ),
                 ),
               ),
             ],
