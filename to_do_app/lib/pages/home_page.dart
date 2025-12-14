@@ -9,17 +9,34 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  final _controller = TextEditingController();
   List toDoList = [
     ['Learn Web Dev', false],
     ['Learn Mobile Dev', false],
     ['Learn Backend Dev', false],
   ];
 
-  void chechBoxChanged(int index){
+  void chechBoxChanged(int index) {
     setState(() {
-          toDoList[index][1] = !toDoList[index][1];
-
+      toDoList[index][1] = !toDoList[index][1];
     });
+  }
+
+  void saveNewTask(){
+    setState(() {
+      if(_controller.text!=""){
+ toDoList.add([_controller.text,false]);
+      _controller.clear(); 
+      }
+        
+    });
+  }
+
+  void deleteTask(int index){
+setState(() {
+    toDoList.removeAt(index);
+});
   }
 
   @override
@@ -37,9 +54,41 @@ class _HomePageState extends State<HomePage> {
           return TodoList(
             taskName: toDoList[index][0],
             taskCompleted: toDoList[index][1],
-            onChanged: (value)=> chechBoxChanged(index),
+            onChanged: (value) => chechBoxChanged(index),
+            deleteFunction: (context)=> deleteTask(index),
           );
         },
+      ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15.0),
+        child: Row(
+          children: [
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: TextField(
+                  controller: _controller,
+                  decoration: InputDecoration(
+                    hintText: 'yeni yapılacak ekle',
+                    filled: true,
+                    fillColor: Colors.deepPurple.shade200,
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.deepPurple),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.deepPurple),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            FloatingActionButton(
+              onPressed: saveNewTask, 
+              child: Icon(Icons.add)),
+          ],
+        ),
       ),
     );
   }
