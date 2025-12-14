@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app/utils/todo_list.dart';
 
-class HomePage extends StatelessWidget {
-   HomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
-  List toDoList=[
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List toDoList = [
     ['Learn Web Dev', false],
     ['Learn Mobile Dev', false],
     ['Learn Backend Dev', false],
   ];
+
+  void chechBoxChanged(int index){
+    setState(() {
+          toDoList[index][1] = !toDoList[index][1];
+
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +31,16 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.white,
       ),
-      body: ListView.builder(itemCount: toDoList.length, itemBuilder: (BuildContext context, index) {
-        return Container(
-          child: Text(
-            toDoList[index][0],
-          ),
-        );
-      }),
+      body: ListView.builder(
+        itemCount: toDoList.length,
+        itemBuilder: (BuildContext context, index) {
+          return TodoList(
+            taskName: toDoList[index][0],
+            taskCompleted: toDoList[index][1],
+            onChanged: (value)=> chechBoxChanged(index),
+          );
+        },
+      ),
     );
   }
 }
