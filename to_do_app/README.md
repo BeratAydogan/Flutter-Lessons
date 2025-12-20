@@ -46,11 +46,9 @@ Follow the steps below to run the project on your local machine.
    ```bash
    cd Flutter-Lessons/to_do_app
 
-
 3. Install dependencies:
    ```bash
    flutter pub get
-
 
 4. Run the application:
    ```bash
