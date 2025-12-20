@@ -1,16 +1,57 @@
-# to_do_app
+# Flutter ToDo App
 
-A new Flutter project.
+This project is a **simple ToDo application** developed using **Flutter and Dart**.  
+It was created for learning purposes to understand the basics of Flutter development, widget structure, and user interaction.
 
-## Getting Started
+The application demonstrates the core logic behind a typical ToDo app and serves as a beginner-friendly Flutter project.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## About the Project
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+With this project, you can learn:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- The basic structure of a Flutter project  
+- How Flutter widgets work  
+- How a simple ToDo application is implemented  
+
+This project is intended for educational and practice purposes.
+
+---
+
+## Technologies Used
+
+- Flutter  
+- Dart  
+
+---
+
+## How to Run the Project
+
+Follow the steps below to run the project on your local machine.
+
+### Requirements
+
+- Flutter SDK installed  
+- An IDE such as Android Studio or VS Code  
+- Android Emulator or a physical device  
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/BeratAydogan/Flutter-Lessons.git
+   
+2. Navigate to the project directory:
+   ```bash
+   cd Flutter-Lessons/to_do_app
+
+
+3. Install dependencies:
+   ```bash
+   flutter pub get
+
+
+4. Run the application:
+   ```bash
+   flutter run
