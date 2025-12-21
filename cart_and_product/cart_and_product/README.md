@@ -1,4 +1,4 @@
-# weather_app
+# Shopping Cart App
 
 A new Flutter project.
 
